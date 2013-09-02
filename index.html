@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="project">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src="http://firebase.github.io/angularFire/angularFire.js"></script>
-    <script src="application.js"></script>
-    <link href="application.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/application.js"></script>
+    <link href="css/application.css" rel="stylesheet">
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,9 +28,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="span12">
-          Foo bar bazgame
-          adfsl
+        <div class="span12" ng-view>
         </div>
       </div>
     </div>

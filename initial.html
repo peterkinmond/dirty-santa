@@ -1,0 +1,11 @@
+<form>
+  <label># of Players<label>
+  <input type="number" ng-pattern="/\d+/" step="1" min="1" ng-model="numPlayers" required>
+
+  <label># of Steals Allowed<label>
+  <input type="number" ng-pattern="/\d+/" step="1" min="1" ng-model="numSteals" required>
+
+  <div>
+    <input type="submit" class="btn-primary" value="Start Game">
+  </div>
+</form>
