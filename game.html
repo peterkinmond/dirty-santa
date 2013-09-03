@@ -1,0 +1,26 @@
+<h1>Round {{game.currentRound}} of {{game.numPlayers}}</h1>
+
+<h2>Up For Grabs</h2>
+<table>
+  <tbody>
+    <tr ng-repeat="present in presents | filter:{stolenThisRound: false} | orderBy:'description'">
+    <td>{{present.description}}</td>
+    <td>
+      <input type="submit" class="btn btn-primary" value="Steal">
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Already Stolen This Round</h2>
+<table>
+  <tbody>
+  <tr ng-repeat="present in presents | filter:{stolenThisRound: true} | orderBy:'description'">
+    <td>{{present.description}}</td>
+    <td>
+      <input type="submit" class="btn btn-primary" value="UnSteal">
+    </td>
+  </tr>
+  </tbody>
+</table>
+
