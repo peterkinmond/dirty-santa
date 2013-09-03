@@ -22,10 +22,21 @@ function InitialController($scope, $location, $timeout, angularFire, Presents) {
   };
 }
 
-function GameController($scope, angularFire, Presents) {
+function GameController($scope, $timeout, $location, angularFire, Presents) {
   var ref = 'https://slug-dub.firebaseio.com/game';
   angularFire(ref, $scope, 'game', {});
   $scope.presents = Presents;
+
+  $scope.addPresent = function() {
+    Presents.add({"description": $scope.presentDescription,
+                  "totalSteals": 0,
+                  "stolenThisRound": false}, function() {
+      $timeout(function() { $location.path('/game'); });
+    });
+    // Update current round of game
+    // Update all presents to "up for grabs"
+
+  };
 }
 
 function StatsController() {

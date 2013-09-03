@@ -1,7 +1,14 @@
 <h1>Round {{game.currentRound}} of {{game.numPlayers}}</h1>
 
+<form ng-submit="addPresent()">
+  <input type="text" ng-model="presentDescription"  size="30"
+         placeholder="Add new present name">
+  <input class="btn btn-primary" type="submit" value="New Present">
+</form>
+
+
 <h2>Up For Grabs</h2>
-<table>
+<table class="table">
   <tbody>
     <tr ng-repeat="present in presents | filter:{stolenThisRound: false} | orderBy:'description'">
     <td>{{present.description}}</td>
@@ -13,7 +20,7 @@
 </table>
 
 <h2>Already Stolen This Round</h2>
-<table>
+<table class="table">
   <tbody>
   <tr ng-repeat="present in presents | filter:{stolenThisRound: true} | orderBy:'description'">
     <td>{{present.description}}</td>
