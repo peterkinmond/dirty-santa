@@ -33,9 +33,14 @@ function GameController($scope, $timeout, $location, angularFire, Presents) {
                   "stolenThisRound": false}, function() {
       $timeout(function() { $location.path('/game'); });
     });
-    // Update current round of game
-    // Update all presents to "up for grabs"
 
+    $scope.presentDescription = "";
+    $scope.game.currentRound += 1;
+
+    // New round so all presents should return to "Up for grabs"
+    angular.forEach($scope.presents, function(present) {
+      present.stolenThisRound = false;
+    });
   };
 }
 
