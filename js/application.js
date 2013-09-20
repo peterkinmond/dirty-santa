@@ -34,6 +34,10 @@ function GameController($scope, $timeout, $location, angularFire, Presents) {
       $timeout(function() { $location.path('/game'); });
     });
 
+    startNewRound();
+  };
+
+  function startNewRound() {
     $scope.presentDescription = "";
     $scope.game.currentRound += 1;
 
@@ -41,7 +45,7 @@ function GameController($scope, $timeout, $location, angularFire, Presents) {
     angular.forEach($scope.presents, function(present) {
       present.stolenThisRound = false;
     });
-  };
+  }
 }
 
 function StatsController() {
