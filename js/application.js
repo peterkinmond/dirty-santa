@@ -18,6 +18,7 @@ function InitialController($scope, $location, $timeout, angularFire, Presents) {
   });
 
   $scope.startGame = function() {
+    $scope.game.currentRound = 1;
     $location.path('/game');
   };
 }
@@ -46,6 +47,16 @@ function GameController($scope, $timeout, $location, angularFire, Presents) {
       present.stolenThisRound = false;
     });
   }
+
+  $scope.stealPresent = function(presentId) {
+    // TODO: Find better way to do this
+    angular.forEach($scope.presents, function(present) {
+      if (present.$id == presentId) {
+        present.stolenThisRound = true;
+        present.totalSteals += 1;
+      }
+    });
+  };
 }
 
 function StatsController() {
