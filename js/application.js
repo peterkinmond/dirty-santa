@@ -1,7 +1,7 @@
 angular.module('project', ['firebase']).
-  value('fbURL', 'https://slug-dub.firebaseio.com/presents').
-  factory('Presents', function(angularFireCollection, fbURL) {
-    return angularFireCollection(fbURL);
+  value('fbUrl', 'https://slug-dub.firebaseio.com/').
+  factory('Presents', function(angularFireCollection, fbUrl) {
+    return angularFireCollection(fbUrl + 'presents');
   }).
   config(function($routeProvider) {
     $routeProvider.
@@ -11,11 +11,8 @@ angular.module('project', ['firebase']).
       otherwise({ redirectTo: '/' });
   });
 
-function InitialController($scope, $location, $timeout, angularFire, Presents) {
-  var ref = 'https://slug-dub.firebaseio.com/game';
-  angularFire(ref, $scope, 'game', {}).
-  then(function() {
-  });
+function InitialController($scope, $location, $timeout, angularFire, Presents, fbUrl) {
+  angularFire(fbUrl + 'game', $scope, 'game', {});
 
   $scope.startGame = function() {
     Presents.splice(0, Presents.length );
@@ -24,9 +21,8 @@ function InitialController($scope, $location, $timeout, angularFire, Presents) {
   };
 }
 
-function GameController($scope, $timeout, $location, angularFire, Presents) {
-  var ref = 'https://slug-dub.firebaseio.com/game';
-  angularFire(ref, $scope, 'game', {});
+function GameController($scope, $timeout, $location, angularFire, Presents, fbUrl) {
+  angularFire(fbUrl + 'game', $scope, 'game', {});
   $scope.presents = Presents;
 
   $scope.addPresent = function() {
