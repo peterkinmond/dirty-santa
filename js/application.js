@@ -11,11 +11,12 @@ angular.module('project', ['firebase']).
       otherwise({ redirectTo: '/' });
   });
 
-function InitialController($scope, $location, $timeout, angularFire, Presents, fbUrl) {
+function InitialController($scope, $location, $timeout, angularFire, fbUrl) {
   angularFire(fbUrl + 'game', $scope, 'game', {});
 
   $scope.startGame = function() {
-    Presents.splice(0, Presents.length );
+    var presents = new Firebase(fbUrl + 'presents');
+    presents.remove();
     $scope.game.currentRound = 1;
     $location.path('/game');
   };
