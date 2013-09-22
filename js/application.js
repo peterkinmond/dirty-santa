@@ -18,6 +18,7 @@ function InitialController($scope, $location, $timeout, angularFire, Presents) {
   });
 
   $scope.startGame = function() {
+    Presents.splice(0, Presents.length );
     $scope.game.currentRound = 1;
     $location.path('/game');
   };
