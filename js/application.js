@@ -38,12 +38,18 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
 
   function startNewRound() {
     $scope.presentDescription = "";
-    $scope.game.currentRound += 1;
 
     // New round so all presents should return to "Up for grabs"
     angular.forEach($scope.presents, function(present) {
       present.stolenThisRound = false;
     });
+
+    if ($scope.game.currentRound === $scope.game.numPlayers) {
+      $location.path('/stats');
+    }
+    else {
+      $scope.game.currentRound += 1;
+    }
   }
 
   $scope.stealPresent = function(presentId) {
@@ -69,6 +75,6 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
 }
 
 function StatsController() {
-
+  angularFire(fbUrl + 'game', $scope, 'game', {});
 }
 
