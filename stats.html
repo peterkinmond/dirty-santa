@@ -1,1 +1,10 @@
-Hello World!
+<h1>Round {{game.currentRound}} of {{game.numPlayers}}: Game Complete!</h1>
+
+<h2>Game Stats</h2>
+<table class="table">
+  <tbody>
+    <tr ng-repeat="present in presents | orderBy:'totalSteals':reverse">
+      <td>{{present.description}} (total steals: {{present.totalSteals}})</td>
+    </tr>
+  </tbody>
+</table>

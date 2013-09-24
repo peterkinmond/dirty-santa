@@ -26,11 +26,11 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
   angularFire(fbUrl + 'game', $scope, 'game', {});
   $scope.presents = Presents;
 
-  $scope.addPresent = function() {
+  $scope.newPresent = function() {
     Presents.add({"description": $scope.presentDescription,
                   "totalSteals": 0,
                   "stolenThisRound": false}, function() {
-      $timeout(function() { $location.path('/game'); });
+      $timeout(function() {});
     });
 
     startNewRound();
@@ -49,6 +49,7 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
     }
     else {
       $scope.game.currentRound += 1;
+      $location.path('/game');
     }
   }
 
@@ -74,7 +75,8 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
 
 }
 
-function StatsController() {
+function StatsController($scope, fbUrl, angularFire, Presents) {
   angularFire(fbUrl + 'game', $scope, 'game', {});
+  $scope.presents = Presents;
 }
 
