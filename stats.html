@@ -3,7 +3,7 @@
 <h2>Game Stats</h2>
 <table class="table">
   <tbody>
-    <tr ng-repeat="present in presents | orderBy:'totalSteals':reverse">
+    <tr ng-repeat="present in presents | orderBy:'totalSteals':true">
       <td>{{present.description}} (total steals: {{present.totalSteals}})</td>
     </tr>
   </tbody>
