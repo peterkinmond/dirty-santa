@@ -54,23 +54,17 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
   }
 
   $scope.stealPresent = function(presentId) {
-    // TODO: Find better way to do this
-    angular.forEach($scope.presents, function(present) {
-      if (present.$id == presentId) {
-        present.stolenThisRound = true;
-        present.totalSteals += 1;
-      }
-    });
+    var present = Presents.getByName(presentId);
+    present.stolenThisRound = true;
+    present.totalSteals += 1;
+    Presents.update(present);
   };
 
   $scope.unstealPresent = function(presentId) {
-    // TODO: Find better way to do this
-    angular.forEach($scope.presents, function(present) {
-      if (present.$id == presentId) {
-        present.stolenThisRound = false;
-        present.totalSteals -= 1;
-      }
-    });
+    var present = Presents.getByName(presentId);
+    present.stolenThisRound = false;
+    present.totalSteals -= 1;
+    Presents.update(present);
   };
 }
 
@@ -78,4 +72,3 @@ function StatsController($scope, fbUrl, angularFire, Presents) {
   angularFire(new Firebase(fbUrl + 'game'), $scope, 'game', {});
   $scope.presents = Presents;
 }
-
