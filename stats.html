@@ -2,9 +2,14 @@
 
 <h2>Game Stats</h2>
 <table class="table">
+  <thead>
+    <th>Item</th>
+    <th>Total Steals</th>
+  </thead>
   <tbody>
     <tr ng-repeat="present in presents | orderBy:'totalSteals':true">
-      <td>{{present.description}} (total steals: {{present.totalSteals}})</td>
+      <td>{{present.description}}</td>
+      <td>{{present.totalSteals}}</td>
     </tr>
   </tbody>
 </table>
