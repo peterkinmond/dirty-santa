@@ -13,8 +13,7 @@
       <td>{{present.description}}</td>
       <td>{{present.totalSteals}}</td>
       <td>{{present.createdInRound}}</td>
-      <td>{{present.totalSteals /
-        (game.numPlayers - present.createdInRound) * 100}}%</td>
+      <td>{{stealPercentage(present.$id) | number:0 }}%</td>
     </tr>
   </tbody>
 </table>

@@ -68,4 +68,9 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
 function StatsController($scope, fbUrl, angularFire, Presents) {
   angularFire(new Firebase(fbUrl + 'game'), $scope, 'game', {});
   $scope.presents = Presents;
+
+  $scope.stealPercentage = function(presentId) {
+    var present = Presents.getByName(presentId);
+    return present.totalSteals / ($scope.game.numPlayers - present.createdInRound) * 100;
+  };
 }
