@@ -12,7 +12,10 @@ angular.module('project', ['firebase']).
   });
 
 function InitialController($scope, $location, $timeout, angularFire, fbUrl) {
-  angularFire(new Firebase(fbUrl + 'game'), $scope, 'game', {});
+  angularFire(new Firebase(fbUrl + 'game'), $scope, 'game', {}).
+  then(function() {
+    $scope.game.numPlayers = 2;
+  });
 
   $scope.startGame = function() {
     var presents = new Firebase(fbUrl + 'presents');
