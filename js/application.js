@@ -59,13 +59,6 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
     present.totalSteals += 1;
     Presents.update(present);
   };
-
-  $scope.unstealPresent = function(presentId) {
-    var present = Presents.getByName(presentId);
-    present.stolenThisRound = false;
-    present.totalSteals -= 1;
-    Presents.update(present);
-  };
 }
 
 function StatsController($scope, fbUrl, angularFire, Presents) {

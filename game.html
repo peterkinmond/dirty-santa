@@ -27,9 +27,6 @@
     <tr ng-repeat="present in presents | filter:{stolenThisRound: true} | orderBy:'description'">
       <td>{{present.description}} (total steals: {{present.totalSteals}})</td>
       <td>
-        <form ng-submit="unstealPresent('{{present.$id}}')">
-          <input type="submit" class="btn btn-primary" value="UnSteal">
-        </form>
       </td>
     </tr>
   </tbody>
