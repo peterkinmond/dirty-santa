@@ -7,7 +7,7 @@
 </form>
 
 
-<h2>Up For Grabs</h2>
+<h2 ng-show="presents.length > 0">Up For Grabs</h2>
 <table class="table">
   <tbody>
     <tr ng-repeat="present in presents | filter:{stolenThisRound: false} | orderBy:'description'">
@@ -21,7 +21,7 @@
   </tbody>
 </table>
 
-<h2>Already Stolen This Round</h2>
+<h2 ng-show="presents.length > 0">Already Stolen This Round</h2>
 <table class="table">
   <tbody>
     <tr ng-repeat="present in presents | filter:{stolenThisRound: true} | orderBy:'description'">
