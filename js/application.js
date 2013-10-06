@@ -32,6 +32,7 @@ function GameController($scope, $timeout, $location, angularFire, Presents, fbUr
   $scope.newPresent = function() {
     Presents.add({"description": $scope.presentDescription,
                   "totalSteals": 0,
+                  "createdInRound": $scope.game.currentRound,
                   "stolenThisRound": false}, function() {
       $timeout(function() {});
     });

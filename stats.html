@@ -5,11 +5,16 @@
   <thead>
     <th>Item</th>
     <th>Total Steals</th>
+    <th>Started In Round</th>
+    <th>Steal %</th>
   </thead>
   <tbody>
     <tr ng-repeat="present in presents | orderBy:'totalSteals':true">
       <td>{{present.description}}</td>
       <td>{{present.totalSteals}}</td>
+      <td>{{present.createdInRound}}</td>
+      <td>{{present.totalSteals /
+        (game.numPlayers - present.createdInRound) * 100}}%</td>
     </tr>
   </tbody>
 </table>
