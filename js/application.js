@@ -69,8 +69,7 @@ function StatsController($scope, fbUrl, angularFire, Presents) {
   angularFire(new Firebase(fbUrl + 'game'), $scope, 'game', {}).then(function() {
     $scope.presents = Presents;
 
-    $scope.stealPercentage = function(presentId) {
-      var present = Presents.getByName(presentId);
+    $scope.stealPercentage = function(present) {
       return present.totalSteals / ($scope.game.numPlayers - present.createdInRound) * 100;
     };
   });

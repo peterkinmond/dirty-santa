@@ -9,11 +9,11 @@
     <th>Steal %</th>
   </thead>
   <tbody>
-    <tr ng-repeat="present in presents | orderBy:'totalSteals':true">
+    <tr ng-repeat="present in presents | orderBy:['totalSteals',stealPercentage]:true">
       <td>{{present.description}}</td>
       <td>{{present.totalSteals}}</td>
       <td>{{present.createdInRound}}</td>
-      <td>{{stealPercentage(present.$id) | number:0 }}%</td>
+      <td>{{stealPercentage(present) | number:0 }}%</td>
     </tr>
   </tbody>
 </table>
