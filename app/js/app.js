@@ -1,7 +1,7 @@
-angular.module('project', [
+angular.module('DirtySantaApp', [
   'firebase',
   'ngRoute',
-  'myApp.controllers'
+  'DirtySantaApp.controllers'
 ]).
 value('fbUrl', 'https://dirty-santa.firebaseio.com/').
 factory('Presents', function(angularFireCollection, fbUrl) {

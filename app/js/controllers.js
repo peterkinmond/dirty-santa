@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
+angular.module('DirtySantaApp.controllers', []).
   controller('InitialController', ['$scope', '$location', '$timeout', 'angularFire', 'fbUrl',
     function($scope, $location, $timeout, angularFire, fbUrl) {
       angularFire(new Firebase(fbUrl + 'game'), $scope, 'game', {}).
