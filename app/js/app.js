@@ -1,4 +1,4 @@
-angular.module('project', ['firebase']).
+angular.module('project', ['ngRoute', 'firebase']).
   value('fbUrl', 'https://dirty-santa.firebaseio.com/').
   factory('Presents', function(angularFireCollection, fbUrl) {
     return angularFireCollection(new Firebase(fbUrl + 'presents'));
